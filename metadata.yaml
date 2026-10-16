@@ -1,0 +1,11 @@
+name: astrbot_plugin_warthunder_news
+desc: 战争雷霆官方论坛公告监控推送插件（RSS 轮询 + LLM 模板总结 + OneBot 群推送）
+help: 群内发送 /news 查询最新其他官方公告（除 Community Update 与游戏版本更新之外）、/cmnews 查询最新 Community Update、/upnews 查询最新游戏版本更新公告；查询优先直接发送本地存档（archive.json），无需重复抓取；插件也会自动轮询、推送新公告并在出现新版本时覆盖旧存档。WebUI 插件详情页提供「公告存档」可视化视图，可查看存档概览并随时强制刷新指定条目。所有配置项请在 AstrBot WebUI 的插件配置页面设置。
+version: v1.5.0
+author: SatzZz
+repo: https://github.com/SatzZz/astrbot_plugin_warthunder_news
+
+# 说明：插件的可配置项（目标群号、CM 群组名、轮询间隔、LLM 总结模板、
+# 关键词白/黑名单、指令白名单等）统一由本目录下的 _conf_schema.json 定义，
+# AstrBot 会据此在 WebUI「插件管理 -> 本插件 -> 配置」页面自动生成可视化表单，
+# 配置保存在 data/config/astrbot_plugin_warthunder_news_config.json。

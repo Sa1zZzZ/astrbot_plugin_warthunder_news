@@ -1,0 +1,64 @@
+{
+  "target_groups": {
+    "description": "推送目标群",
+    "type": "list",
+    "hint": "公告推送到的 QQ 群号列表，点击右侧按钮可增删条目。",
+    "obvious_hint": true,
+    "default": ["123456789"]
+  },
+  "cm_group_name": {
+    "description": "CM 群组名",
+    "type": "string",
+    "hint": "Community Update 类公告只提取佩戴该群组徽章的用户发言，默认为论坛的 Community Manager 群组。",
+    "default": "Community Manager"
+  },
+  "poll_interval": {
+    "description": "轮询间隔（秒）",
+    "type": "int",
+    "hint": "每隔多少秒拉取一次论坛 RSS。600 秒 = 10 分钟。",
+    "default": 600,
+    "slider": { "min": 60, "max": 3600, "step": 60 }
+  },
+  "max_images": {
+    "description": "单条公告最多图片数",
+    "type": "int",
+    "hint": "推送时最多携带的图片数量，设为 0 则完全不发送图片（避免刷屏或触发风控）。",
+    "default": 9,
+    "slider": { "min": 0, "max": 20, "step": 1 }
+  },
+  "keyword_whitelist": {
+    "description": "公告关键词白名单",
+    "type": "list",
+    "hint": "只推送标题包含其中任一关键词的公告（不区分大小写）。留空表示不限制。",
+    "default": []
+  },
+  "keyword_blacklist": {
+    "description": "公告关键词黑名单",
+    "type": "list",
+    "hint": "标题包含其中任一关键词的公告不推送（不区分大小写），优先级高于白名单。留空表示不屏蔽。默认屏蔽商店类（Store/Pre-order/Pack/Bundle）、电竞类（Esport/Tournament/League/Championship）、涂装类（Decal/Camouflage/Skin/WT Live）和无关游戏内容（Soundtrack/Wallpaper/Fan art/Artwork/Cosplay/Comic/Merch），可按需增删。",
+    "default": [
+      "Store", "Pre-order", "Pack", "Bundle",
+      "Esport", "Tournament", "League", "Championship",
+      "Decal", "Camouflage", "Skin", "WT Live",
+      "Soundtrack", "Wallpaper", "Fan art", "Artwork", "Cosplay", "Comic", "Merch"
+    ]
+  },
+  "command_group_whitelist": {
+    "description": "指令触发群白名单",
+    "type": "list",
+    "hint": "只允许这些群号使用查询指令（/news、/cmnews、/upnews）。留空表示不限制。",
+    "default": []
+  },
+  "command_user_whitelist": {
+    "description": "指令使用者白名单（QQ 号）",
+    "type": "list",
+    "hint": "只允许这些 QQ 号使用查询指令（/news、/cmnews、/upnews）。留空表示不限制。",
+    "default": []
+  },
+  "llm_template": {
+    "description": "LLM 总结模板",
+    "type": "text",
+    "hint": "LLM 会严格按此模板输出。大标题=公告标题，发布者ID=发帖人；「图片（如果存在图片）」一行由插件替换为图片本体，「（图片描述）」由模型引用原文中该图片附近的文字说明（不做图片识别）。",
+    "default": "大标题\n发布者ID：\n总结后的二级标题1\n总结后的内容1\n------\n总结后的二级标题2\n总结后的内容2\n图片（如果存在图片）\n（图片描述）\n图片（如果存在图片）\n（图片描述）\n-------"
+  }
+}

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>公告存档</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="page-head">
+        <div>
+          <h1>公告存档</h1>
+          <p class="sub" id="status">加载中…</p>
+        </div>
+        <button id="refresh-all" class="btn primary" type="button">全部刷新</button>
+      </header>
+
+      <div id="toast" class="toast" hidden></div>
+
+      <main id="cards" class="cards"></main>
+
+      <footer class="foot">
+        刷新会重新抓取论坛原文并调用 LLM 重新总结，完成后覆盖本地存档（archive.json）。
+        查询指令 /news、/cmnews、/upnews 会直接发送这里保存的内容。
+      </footer>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
